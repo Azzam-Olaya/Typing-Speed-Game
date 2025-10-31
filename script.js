@@ -89,3 +89,58 @@ startButton.addEventListener("click", () => {
         startButton.click(); 
     });
 });
+
+function startTimer(timeLimit) {
+    const timerDisplay = document.getElementById("timer");
+    let timeLeft = timeLimit;
+
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        timerDisplay.textContent = timeLeft;
+
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            endGame();
+        }
+    }, 1000);
+}
+
+function handleTyping(targetText) {
+    const input = document.getElementById("userInput");
+    const correctCount = document.getElementById("correctCount");
+    const errorCount = document.getElementById("errorCount");
+    const textSpans = document.querySelectorAll("#textToType span");
+
+    input.addEventListener("input", () => {
+        const typedText = input.value;
+        let correct = 0;
+        let errors = 0;
+
+        for (let i = 0; i < textSpans.length; i++) {
+            const typedChar = typedText[i];
+            const correctChar = targetText[i];
+            const span = textSpans[i];
+
+            if (typedChar == null) {
+                span.classList.remove("correct", "incorrect");
+            } else if (typedChar === correctChar) {
+                span.classList.add("correct");
+                span.classList.remove("incorrect");
+                correct++;
+            } else {
+                span.classList.add("incorrect");
+                span.classList.remove("correct");
+                errors++;
+            }
+        }
+
+        correctCount.textContent = correct;
+        errorCount.textContent = errors;
+
+        if (typedText === targetText) {
+            clearInterval(timerInterval);
+            endGame(true);
+        }
+    });
+}
+
