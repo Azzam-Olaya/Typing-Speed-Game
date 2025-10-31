@@ -144,3 +144,34 @@ function handleTyping(targetText) {
     });
 }
 
+function endGame(success = false) {
+    const input = document.getElementById("userInput");
+    const correct = parseInt(document.getElementById("correctCount").textContent);
+    const errors = parseInt(document.getElementById("errorCount").textContent);
+    const totalChars = correct + errors;
+    const timeUsed = parseInt(document.getElementById("timer").textContent);
+    const totalTime = timeByLevel[selectedLevel];
+    const timeElapsed = totalTime - timeUsed;
+
+    const words = correct / 5;
+    const wpm = Math.round((words / timeElapsed) * 60);
+    const accuracy = totalChars > 0 ? Math.round((correct / totalChars) * 100) : 0;
+
+    input.disabled = true;
+
+    const bestScore = localStorage.getItem("bestWPM") || 0;
+    if (wpm > bestScore) localStorage.setItem("bestWPM", wpm);
+
+    const message = document.createElement("div");
+    message.style.marginTop = "20px";
+    message.innerHTML = `
+        <h3 style="color:${success ? '#4CAF50' : '#ff4c4c'};">
+            ${success ? "🎉 Bravo !" : "⏳ Temps écoulé !"}<br>
+        </h3>
+        <p>⏱️ Vitesse/min : <strong>${wpm} WPM</strong></p>
+        <p>🎯 Précision : <strong>${accuracy}%</strong></p>
+        <p>🏆 Meilleur score : <strong>${localStorage.getItem("bestWPM")} WPM</strong></p>
+    `;
+    gameSection.appendChild(message);
+}
+
