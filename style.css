@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    background-color: #20232a;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.hidden {
+    display: none;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #61dafb;
+}
+
+#level-section {
+    text-align: center;
+}
+
+.level-container {
+    background: #282c34;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    margin: 0 auto;
+}
+
+.level-container h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.levels {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.levels button {
+    background: #61dafb;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 0;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.levels button:hover {
+    background: #21a1f1;
+}
+
+.start-btn {
+    width: 100%;
+    padding: 15px;
+    background: #61dafb;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ===== PAGE 2 ===== */
+#game-section {
+    text-align: center;
+    width: 600px;
+    background: #282c34;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.text-card {
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+    min-height: 80px;
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    margin-bottom: 20px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.info div {
+    background: #3b3f47;
+    padding: 10px;
+    border-radius: 8px;
+    width: 30%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttons button {
+    background: #61dafb;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.buttons button:hover {
+    background: #21a1f1;
+}
