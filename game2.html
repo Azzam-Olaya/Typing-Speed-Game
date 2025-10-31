@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Game</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <title>Typing Speed Game</title>
 </head>
 
 <body>
@@ -14,20 +14,24 @@
         <h1>Typing Speed Game</h1>
         <div class="level-container">
             <h2>Quel niveau voulez-vous jouer ?</h2>
+
             <div class="levels">
-                <button class="level" data-level="1">Level 1</button>
-                <button class="level" data-level="2">Level 2</button>
-                <button class="level" data-level="3">Level 3</button>
-                <button class="level" data-level="4">Level 4</button>
+                <button class="level" data-level="1">Niveau 1</button>
+                <button class="level" data-level="2">Niveau 2</button>
+                <button class="level" data-level="3">Niveau 3</button>
+                <button class="level" data-level="4">Niveau 4</button>
             </div>
+
+            <div class="best-score">
+                🏆 Meilleur score : <span id="bestScore">0</span> WPM
+            </div>
+
             <button class="start-btn" id="startGame">Commencer</button>
         </div>
     </section>
-    
+
     <section id="game-section" class="hidden">
     </section>
-
-    
 </body>
 
 </html>

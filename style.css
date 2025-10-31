@@ -1,3 +1,4 @@
+/* === RESET & BASE === */
 * {
     margin: 0;
     padding: 0;
@@ -6,9 +7,8 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    margin: 0;
     background-color: #20232a;
-    color: white;
+    color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,12 +19,18 @@ body {
     display: none;
 }
 
+/* === TITRES === */
 h1 {
     text-align: center;
     margin-bottom: 20px;
     color: #61dafb;
 }
 
+h2 {
+    color: #ffffff;
+}
+
+/* === PAGE DE SÉLECTION DU NIVEAU === */
 #level-section {
     text-align: center;
 }
@@ -35,6 +41,7 @@ h1 {
     border-radius: 10px;
     width: 400px;
     margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
 .level-container h2 {
@@ -56,11 +63,21 @@ h1 {
     padding: 15px 0;
     font-size: 16px;
     cursor: pointer;
-    transition: 0.2s;
+    font-weight: 600;
+    color: #20232a;
+    transition: 0.2s ease;
 }
 
-.levels button:hover {
+.levels button:hover,
+.levels button.active {
     background: #21a1f1;
+    color: #fff;
+}
+
+.best-score {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #b0bec5;
 }
 
 .start-btn {
@@ -72,39 +89,84 @@ h1 {
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
+    transition: 0.2s ease;
 }
 
-/* ===== PAGE 2 ===== */
+.start-btn:hover {
+    background: #21a1f1;
+    color: #fff;
+}
+
+/* === PAGE DU JEU === */
 #game-section {
     text-align: center;
-    width: 600px;
+    width: 650px;
     background: #282c34;
     padding: 30px;
     border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
+/* Barre de progression du temps */
+.progress-bar {
+    height: 10px;
+    background: #444;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+#progress {
+    height: 100%;
+    background: #61dafb;
+    width: 100%;
+    transition: width 1s linear;
+}
+
+/* Texte à taper */
 .text-card {
     background: #333;
     padding: 20px;
     border-radius: 10px;
-    min-height: 80px;
+    min-height: 90px;
+    margin-bottom: 20px;
+    text-align: left;
+    line-height: 1.6;
+    font-size: 18px;
+}
+
+.text-card span.correct {
+    color: #4caf50;
+}
+
+.text-card span.incorrect {
+    color: #ff4c4c;
+}
+
+/* Zone de saisie */
+.typing-area {
     margin-bottom: 20px;
 }
 
-textarea {
+.typing-area textarea {
     width: 100%;
+    height: 100px;
+    resize: none;
     padding: 10px;
     font-size: 16px;
     border-radius: 8px;
     border: none;
     outline: none;
-    margin-bottom: 20px;
+    background: #3b3f47;
+    color: white;
 }
 
+/* Infos : temps, erreurs, mots */
 .info {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    gap: 10px;
 }
 
 .info div {
@@ -112,11 +174,14 @@ textarea {
     padding: 10px;
     border-radius: 8px;
     width: 30%;
+    font-weight: 600;
 }
 
+/* Boutons de navigation */
 .buttons {
     display: flex;
     justify-content: space-around;
+    margin-top: 10px;
 }
 
 .buttons button {
@@ -126,9 +191,22 @@ textarea {
     padding: 10px 25px;
     font-size: 16px;
     cursor: pointer;
+    font-weight: bold;
+    color: #20232a;
     transition: 0.2s;
 }
 
 .buttons button:hover {
     background: #21a1f1;
+    color: #fff;
+}
+
+/* === MESSAGE FINAL === */
+.result-message {
+    margin-top: 25px;
+    background: #3b3f47;
+    padding: 15px;
+    border-radius: 10px;
+    color: #fff;
+    line-height: 1.6;
 }
